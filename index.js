@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import path from "path";
 
 const app = express();
 const port = 3000;
@@ -13,9 +14,10 @@ const port = 3000;
 //Hint: Google to find out how to get the current year using JS.
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static("public"));
 app.get("/", (req, res) => {
   //Step 1 - Make the get route work and render the index.ejs file.
+  res.render("index.ejs");
 });
 
 app.post("/submit", (req, res) => {
